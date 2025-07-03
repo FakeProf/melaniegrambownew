@@ -1,0 +1,736 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Farbvariablen */
+:root {
+    --rose-blass: #F6D8D7;
+    --altrosa: #D8A7A7;
+    --staubrosa: #B5838D;
+    --hellgrau: #EAEAEA;
+    --mittelgrau: #B0B0B0;
+    --anthrazit: #4A4A4A;
+    --white: #fff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--anthrazit);
+    background: var(--rose-blass);
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--staubrosa);
+    margin: 0 0 1.5rem 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--rose-blass);
+    box-shadow: 0 2px 12px rgba(181, 131, 141, 0.05);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-text {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--staubrosa);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--anthrazit);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--staubrosa);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--staubrosa);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Yoga */
+.hero-yoga {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 0 0 48px 48px;
+    margin-bottom: 80px;
+}
+.hero-bg-img {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.95) blur(0px);
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(120deg, rgba(246,216,215,0.65) 60%, rgba(213,167,167,0.3) 100%);
+    z-index: 2;
+}
+.hero-center {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: var(--anthrazit);
+    padding: 80px 20px 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mandala-icon {
+    margin-bottom: 32px;
+}
+.hero-title {
+    font-size: 4rem;
+    color: var(--staubrosa);
+    margin-bottom: 1rem;
+}
+.hero-sub {
+    font-size: 2.5rem;
+    color: var(--altrosa);
+    margin-bottom: 1rem;
+}
+.hero-claim {
+    font-size: 1.4rem;
+    color: var(--anthrazit);
+    margin-bottom: 2.5rem;
+}
+.btn {
+    display: inline-block;
+    padding: 18px 44px;
+    border-radius: 32px;
+    background: var(--altrosa);
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(181,131,141,0.13);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn:hover {
+    background: var(--staubrosa);
+    color: white;
+    box-shadow: 0 4px 24px rgba(181,131,141,0.18);
+}
+
+/* Über mich Sektion optimiert */
+.about-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    gap: 48px;
+    padding: 32px 0;
+}
+.about-img-outer {
+    flex: 0 0 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about-img-circle {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 7px solid var(--altrosa);
+    box-shadow: 0 8px 36px rgba(181,131,141,0.18);
+}
+.about-text {
+    flex: 1 1 400px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+}
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 1.2rem;
+    width: 100%;
+}
+.about-claim {
+    color: var(--mittelgrau);
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    width: 100%;
+}
+blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--staubrosa);
+    background: var(--hellgrau);
+    border-left: 6px solid var(--altrosa);
+    margin: 0 0 1.2rem 0;
+    padding: 1.1rem 1.5rem;
+    border-radius: 0 18px 18px 0;
+    font-style: italic;
+    font-weight: 600;
+    width: 100%;
+}
+.about-list {
+    margin: 0.5rem 0 0 0;
+    padding: 0 0 0 18px;
+    color: var(--anthrazit);
+    font-size: 1.13rem;
+    width: 100%;
+}
+.about-list li {
+    margin-bottom: 0.7rem;
+}
+
+/* Ornament Divider */
+.ornament-divider {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0 2rem 0;
+}
+
+/* Philosophie */
+.yoga-philosophy {
+    background: var(--rose-blass);
+    box-shadow: none;
+    margin-bottom: 64px;
+}
+.yoga-philosophy h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.philosophy-grid {
+    display: flex;
+    gap: 44px;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+.philosophy-item {
+    background: var(--white);
+    border-radius: 28px;
+    box-shadow: 0 4px 24px rgba(181,131,141,0.13);
+    border: 1.5px solid var(--hellgrau);
+    padding: 1.7rem 2.2rem;
+    min-width: 200px;
+    text-align: center;
+    font-size: 1.18rem;
+    color: var(--anthrazit);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+}
+.philosophy-item i {
+    color: var(--altrosa);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.philosophy-text {
+    text-align: center;
+    color: var(--anthrazit);
+    font-size: 1.18rem;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Angebot */
+.section h2, .section h3 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.angebot-flex {
+    display: flex;
+    gap: 56px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.angebot-card {
+    background: var(--white);
+    border-radius: 32px;
+    box-shadow: 0 6px 32px rgba(181,131,141,0.16);
+    padding: 3.2rem 2.7rem;
+    min-width: 400px;
+    max-width: 600px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1.5px solid var(--hellgrau);
+    margin-bottom: 40px;
+}
+.angebot-card:last-child {
+    margin-bottom: 0;
+}
+.angebot-icon {
+    font-size: 2.7rem;
+    color: var(--altrosa);
+    margin-bottom: 1.3rem;
+}
+.angebot-card h3 {
+    color: var(--staubrosa);
+    font-size: 1.5rem;
+    margin-bottom: 1.3rem;
+}
+.angebot-card p, .angebot-list {
+    font-size: 1.18rem;
+}
+.angebot-list li {
+    font-size: 1.15rem;
+}
+
+/* Studio */
+.studio-yoga {
+    background: var(--white);
+    box-shadow: 0 8px 32px rgba(181,131,141,0.13);
+    border-radius: 32px;
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+    margin-top: 60px;
+    padding: 56px 32px;
+}
+.studio-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 64px;
+    justify-content: center;
+}
+.studio-img-outer {
+    flex: 0 0 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+.studio-img-circle {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid var(--altrosa);
+    box-shadow: 0 10px 40px rgba(181,131,141,0.18);
+}
+.studio-text {
+    flex: 1 1 400px;
+    min-width: 260px;
+    padding: 12px 0 12px 0;
+}
+.studio-text h2 {
+    font-size: 2.1rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 24px;
+}
+.studio-text blockquote {
+    background: #ececec;
+    color: var(--staubrosa);
+    border-left: 6px solid var(--altrosa);
+    font-size: 1.15rem;
+    margin: 0 0 1.5rem 0;
+    padding: 1.3rem 2rem;
+    border-radius: 12px;
+    font-style: italic;
+    font-weight: 600;
+}
+.quote-author {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--mittelgrau);
+    margin-top: 0.7rem;
+    font-style: normal;
+}
+
+/* Kontakt */
+.kontakt-yoga {
+    background: var(--white);
+    box-shadow: 0 8px 32px rgba(181,131,141,0.13);
+    border-radius: 32px;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+    padding: 56px 32px;
+}
+.kontakt-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+.kontakt-info {
+    flex: 1 1 220px;
+    min-width: 180px;
+    font-size: 1.15rem;
+    color: var(--anthrazit);
+    background: var(--hellgrau);
+    border-radius: 22px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(181,131,141,0.07);
+    font-weight: 500;
+}
+.kontakt-info i {
+    color: var(--altrosa);
+    margin-right: 8px;
+}
+.kontakt-info a {
+    color: var(--staubrosa);
+    text-decoration: none;
+}
+.kontakt-info a:hover {
+    text-decoration: underline;
+}
+.kontakt-claim {
+    margin-top: 1.2rem;
+    color: var(--mittelgrau);
+    font-size: 1.08rem;
+}
+.kontakt-form {
+    flex: 2 1 320px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    background: var(--hellgrau);
+    border-radius: 22px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 12px rgba(181,131,141,0.07);
+}
+.kontakt-form input,
+.kontakt-form textarea {
+    border: 2px solid var(--rose-blass);
+    background: white;
+    color: var(--anthrazit);
+    border-radius: 18px;
+    padding: 16px;
+    font-size: 1.13rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+.kontakt-form input:focus,
+.kontakt-form textarea:focus {
+    border-color: var(--altrosa);
+    outline: none;
+}
+.kontakt-form button {
+    margin-top: 0.7rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--staubrosa);
+    color: white;
+    padding: 3rem 0 2rem 0;
+    text-align: center;
+    border-radius: 32px 32px 0 0;
+    margin-top: 80px;
+    position: relative;
+    box-shadow: 0 -2px 24px rgba(181,131,141,0.13);
+}
+.footer-mandala {
+    margin-bottom: 1.5rem;
+}
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    font-size: 1.13rem;
+}
+.footer-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.footer-link:hover {
+    color: var(--altrosa);
+}
+
+/* Abstand zwischen Sektionen */
+.section + .section, .section + .rose, .rose + .section {
+    margin-top: 80px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hero-center {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-sub {
+        font-size: 2rem;
+    }
+
+    .about-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .philosophy-grid {
+        flex-direction: column;
+    }
+
+    .angebot-flex {
+        flex-direction: column;
+    }
+
+    .studio-flex {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .kontakt-flex {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-sub {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .angebot-card {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .section {
+        padding: 32px 8px;
+    }
+    .about-img-circle, .studio-img-circle {
+        width: 120px;
+        height: 120px;
+    }
+    .angebot-card {
+        min-width: 95vw;
+        max-width: 99vw;
+        padding: 2rem 0.5rem;
+    }
+    .about-flex {
+        flex-direction: column;
+        gap: 24px;
+        padding: 16px 0;
+    }
+    .about-img-outer {
+        flex: none;
+    }
+    .about-text, .about-text h2, blockquote, .about-list {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    .studio-flex {
+        gap: 24px;
+    }
+    .studio-yoga {
+        padding: 24px 4px;
+    }
+    .studio-img-outer {
+        padding: 4px;
+    }
+    .studio-text {
+        padding: 4px 0 4px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 10px;
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-sub {
+        font-size: 1.2rem;
+    }
+    .section, .kontakt-yoga {
+        padding: 12px 2px;
+        border-radius: 18px;
+    }
+    .footer {
+        border-radius: 18px 18px 0 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    .section, .kontakt-yoga {
+        padding: 32px 8px;
+    }
+    .about-img-circle, .studio-img-circle {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 800px) {
+    .about-flex, .studio-flex, .angebot-flex, .kontakt-flex {
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+    }
+    .about-img-circle, .studio-img-circle {
+        width: 110px;
+        height: 110px;
+    }
+    .kontakt-info, .kontakt-form {
+        width: 100%;
+        min-width: unset;
+        padding: 1.2rem 0.7rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .section, .kontakt-yoga {
+        padding: 32px 8px;
+    }
+    .about-img-circle, .studio-img-circle {
+        width: 160px;
+        height: 160px;
+    }
+    .studio-yoga, .kontakt-yoga {
+        max-width: 98vw;
+    }
+} 
